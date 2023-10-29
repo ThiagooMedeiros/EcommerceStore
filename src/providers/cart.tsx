@@ -12,6 +12,7 @@ interface ICartContext {
   addProductToCart: (product: CartProduct) => void;
   decreaseProductQuantity: (productId: string) => void;
   increaseProductQuantity: (productId: string) => void;
+  removeProductFromCart: (productId: string) => void;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -22,6 +23,7 @@ export const CartContext = createContext<ICartContext>({
   addProductToCart: () => {},
   decreaseProductQuantity: () => {},
   increaseProductQuantity: () => {},
+  removeProductFromCart: () => {},
 });
 
 const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -63,7 +65,6 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
         .filter((cartProduct) => cartProduct.quantity > 0),
     );
   };
-
   const increaseProductQuantity = (productId: string) => {
     setProducts((prev) =>
       prev.map((cartProduct) => {
@@ -73,9 +74,14 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
             quantity: cartProduct.quantity + 1,
           };
         }
-
         return cartProduct;
       }),
+    );
+  };
+
+  const removeProductFromCart = (productId: string) => {
+    setProducts((prev) =>
+      prev.filter((cartProduct) => cartProduct.id !== productId),
     );
   };
 
@@ -86,6 +92,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
         addProductToCart,
         decreaseProductQuantity,
         increaseProductQuantity,
+        removeProductFromCart,
         cartTotalPrice: 0,
         cartBasePrice: 0,
         cartTotalDiscount: 0,
