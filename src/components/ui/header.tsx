@@ -36,7 +36,7 @@ const Header = () => {
     <Card className="flex items-center justify-between p-[1.875rem]">
       <Sheet>
         <SheetTrigger asChild>
-          <Button size="icon" variant="outline">
+          <Button size="icon" variant="outline" className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary duration-300">
             <MenuIcon />
           </Button>
         </SheetTrigger>
@@ -131,7 +131,7 @@ const Header = () => {
 
       <Sheet>
         <SheetTrigger asChild>
-          <Button size="icon" variant="outline">
+          <Button size="icon" variant="outline" className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary duration-300">
             <ShoppingCartIcon />
           </Button>
         </SheetTrigger>
