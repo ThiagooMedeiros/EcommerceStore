@@ -14,35 +14,26 @@ import { useSession } from "next-auth/react";
 
 const Cart = () => {
   const { data } = useSession();
-
   const { products, subtotal, total, totalDiscount } = useContext(CartContext);
-
   const handleFinishPurchaseClick = async () => {
     if (!data?.user) {
       // TODO: redirecionar para o login
       return;
     }
-
     const order = await createOrder(products, (data?.user as any).id);
-
     const checkout = await createCheckout(products, order.id);
-
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
-
     // Criar pedido no banco
-
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
     });
   };
-
   return (
     <div className="flex h-full flex-col gap-8">
       <Badge variant="heading">
         <ShoppingCartIcon size={16} />
         Carrinho
       </Badge>
-
       {/* RENDERIZAR OS PRODUTOS */}
       <div className="flex h-full max-h-full flex-col gap-5 overflow-hidden">
         <ScrollArea className="h-full">
@@ -62,7 +53,6 @@ const Cart = () => {
           </div>
         </ScrollArea>
       </div>
-
       {products.length > 0 && (
         <div className="flex flex-col gap-3">
           <Separator />
@@ -92,7 +82,6 @@ const Cart = () => {
             <p>Total</p>
             <p>R$ {total.toFixed(2)}</p>
           </div>
-
           <Button
             className="mt-7 font-bold uppercase"
             onClick={handleFinishPurchaseClick}
@@ -104,5 +93,4 @@ const Cart = () => {
     </div>
   );
 };
-
 export default Cart;
