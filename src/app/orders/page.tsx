@@ -4,6 +4,9 @@ import { prismaClient } from "@/lib/prisma";
 import { PackageSearchIcon } from "lucide-react";
 import { getServerSession } from "next-auth";
 import OrderItem from "./components/order-item";
+
+export const dynamic = "force-dynamic";
+
 async function OrderPage() {
   const user = getServerSession(authOptions);
   if (!user) {
