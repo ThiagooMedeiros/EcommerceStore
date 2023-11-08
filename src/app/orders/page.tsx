@@ -8,13 +8,15 @@ import OrderItem from "./components/order-item";
 export const dynamic = "force-dynamic";
 
 async function OrderPage() {
-  const user = getServerSession(authOptions);
-  if (!user) {
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user) {
     return <p>Access Denied</p>;
   }
+
   const orders = await prismaClient.order.findMany({
     where: {
-      userId: (user as any).id,
+      userId: session.user.id,
     },
     include: {
       orderProducts: {
@@ -24,7 +26,6 @@ async function OrderPage() {
       },
     },
   });
-
   return (
     <div className="p-5">
       <Badge
@@ -34,7 +35,7 @@ async function OrderPage() {
         <PackageSearchIcon size={16} />
         Meus Pedidos
       </Badge>
-      <div className="flex flex-col gap-5 mt-2">
+      <div className="mt-5 flex flex-col gap-5">
         {orders.map((order) => (
           <OrderItem key={order.id} order={order} />
         ))}
