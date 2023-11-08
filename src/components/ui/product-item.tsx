@@ -8,14 +8,13 @@ interface ProductItemProps {
   product: ProductWithTotalPrice;
   className?: string;
 }
-
 const ProductItem = ({ product, className }: ProductItemProps) => {
   return (
     <Link
       href={`/product/${product.slug}`}
       className={cn("flex min-w-[156px] flex-col gap-4", className)}
     >
-      <div className="relative flex w-full items-center justify-center rounded-lg bg-accent lg:h-[200px]">
+      <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imageUrls[0]}
           height={0}
@@ -24,25 +23,21 @@ const ProductItem = ({ product, className }: ProductItemProps) => {
           className="h-auto max-h-[70%] w-auto max-w-[80%] object-contain"
           alt={product.name}
         />
-
         {product.discountPercentage > 0 && (
           <DiscountBadge className="absolute left-3 top-3">
             {product.discountPercentage}
           </DiscountBadge>
         )}
       </div>
-
       <div className="flex flex-col gap-1">
         <p className="truncate text-sm">{product.name}</p>
-
         <div className="flex items-center gap-2 ">
           {product.discountPercentage > 0 ? (
             <>
-              <p className="truncate font-semibold lg:text-lg">
+              <p className="truncate font-semibold">
                 R$ {product.totalPrice.toFixed(2)}
               </p>
-
-              <p className="truncate text-xs line-through opacity-75 lg:text-sm">
+              <p className="truncate text-xs line-through opacity-75">
                 R$ {Number(product.basePrice).toFixed(2)}
               </p>
             </>
@@ -56,5 +51,4 @@ const ProductItem = ({ product, className }: ProductItemProps) => {
     </Link>
   );
 };
-
 export default ProductItem;
