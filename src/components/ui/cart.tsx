@@ -23,13 +23,13 @@ const Cart = () => {
       return;
     }
 
-    await createOrder(products, (data?.user as any).id);
+    const order = await createOrder(products, (data?.user as any).id);
 
-    const checkout = await createCheckout(products);
+    const checkout = await createCheckout(products, order.id);
 
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
-    //criar pedido no banco
+    // Criar pedido no banco
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
@@ -45,6 +45,7 @@ const Cart = () => {
         <ShoppingCartIcon size={16} />
         Carrinho
       </Badge>
+
       {/* RENDERIZAR OS PRODUTOS */}
       <div className="flex h-full max-h-full flex-col gap-5 overflow-hidden">
         <ScrollArea className="h-full">
@@ -64,32 +65,33 @@ const Cart = () => {
           </div>
         </ScrollArea>
       </div>
+
       {products.length > 0 && (
         <div className="flex flex-col gap-3">
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-xs lg:text-sm">
             <p>Subtotal</p>
             <p>R$ {subtotal.toFixed(2)}</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-xs lg:text-sm">
             <p>Entrega</p>
             <p>GRÁTIS</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-xs lg:text-sm">
             <p>Descontos</p>
             <p>- R$ {totalDiscount.toFixed(2)}</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-sm font-bold">
+          <div className="flex items-center justify-between text-sm font-bold lg:text-base">
             <p>Total</p>
             <p>R$ {total.toFixed(2)}</p>
           </div>
@@ -105,4 +107,5 @@ const Cart = () => {
     </div>
   );
 };
+
 export default Cart;
