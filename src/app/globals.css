@@ -4,31 +4,31 @@
  
 @layer base {
   :root {
-    --background: 0 0% 9.8%;
+    --background: 0 0% 9.8%; /* cinza claro */
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 4%;
+    --card: 0 0% 4%; /* preto */
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 4%;
+    --popover: 0 0% 4%; /* preto */
     --popover-foreground: 0 0% 100%;
 
-    --primary: 252 59% 48%;
+    --primary: 252 59% 48%; /* roxo */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 9%;
+    --secondary: 0 0% 9%; /* cinza */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 9%;
+    --muted: 0 0% 9%; /* cinza */
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 0 0% 9%;
+    --accent: 0 0% 9%; /* cinza */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 30.6%; /* vermelho vinho */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 9%;
+    --border: 0 0% 15%;
     --input: 0 0% 9%;
     --ring: 212.7 26.8% 83.9%;
 
