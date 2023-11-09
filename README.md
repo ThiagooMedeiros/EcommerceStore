@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center"> Ecommerce Store </h1>
 
-## Getting Started
+<p align="center">Loja modelo e-commerce de tecnologia.<br/>
 
-First, run the development server:
+<p align="center">
+  <a href="#🚀-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#💻-funcionalidades-do-projeto">Projeto</a> 
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<br>
+<div align="center">
+  <p>
+    <img alt="Imagem do projeto Ecommerce Store" src="./public/print-ecommerce-01.png" width="100%">
+  </p>
+  
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tecnologias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<div>
 
-## Learn More
+  - **React**
 
-To learn more about Next.js, take a look at the following resources:
+  - **Next.js 13**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - **Tailwind CSS**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  - **Next Auth** (Biblioteca para autenticação de usuários com OAuth)
 
-## Deploy on Vercel
+  - **Postgres** (Um sistema de gerenciamento de banco de dados relacional.)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - **Prisma** (Um ORM (Object-Relational Mapping) para Node.js e TypeScript.)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - **shadcn/ui** (Uma biblioteca de componentes.)
+
+  - **API do Stripe** (Uma API de pagamento.)
+
+</div>
+
+## 💻 Funcionalidades do projeto:
+
+<div>
+  <br>
+
+   - **Login com o Google:**
+  <p>
+    <img alt="Imagem do projeto Ecommerce Store" src="./public/print-ecommerce-02.png" width="100%">
+  </p>
+
+
+  - **Navegação por Categorias:**
+   <p>
+    <img alt="Imagem do projeto Ecommerce Store" src="./public/print-ecommerce-05.png" width="100%">
+  </p>
+
+  - **Descontos em Produtos:**
+   <p>
+    <img alt="Imagem do projeto Ecommerce Store" src="./public/print-ecommerce-03.png" width="100%">
+  </p>
+  
+  - **Gerenciamento do Carrinho de Compras:**
+  <p>
+    <img alt="Imagem do projeto Ecommerce Store" src="./public/print-ecommerce-04.png" width="100%">
+  </p>
+
+  - **Pagamento do Pedido com a API do Stripe:**
+  <p>
+    <img alt="Imagem do projeto Ecommerce Store" src="./public/print-ecommerce-06.png" width="100%">
+  </p>
+</div>
+
+## 
+
